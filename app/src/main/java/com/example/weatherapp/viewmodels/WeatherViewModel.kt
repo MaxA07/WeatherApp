@@ -1,4 +1,4 @@
-package com.example.weatherapp
+package com.example.weatherapp.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Response
 
-class MainViewModel(private val repository: Repository): ViewModel() {
+class WeatherViewModel(private val repository: Repository): ViewModel() {
     val myResponse: MutableLiveData<Response<WeatherModel>> = MutableLiveData()
     fun getWeather() {
         viewModelScope.launch {
