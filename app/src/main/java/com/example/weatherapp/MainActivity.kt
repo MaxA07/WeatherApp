@@ -20,22 +20,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val repository = Repository()
-        val viewModelFactory = WeatherViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(WeatherViewModel::class.java)
-        viewModel.getWeather()
-        viewModel.myResponse.observe(this, Observer { response ->
-
-            if (response.isSuccessful) {
-                Log.d("asd", response.body()?.main?.temp.toString())
-                binding.text.text = response.body()?.main?.temp.toString()
-            }
-
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.place_holder, MainFragment.newInstance())
-                .commit()
-        })
+//        val repository = Repository()
+//        val viewModelFactory = WeatherViewModelFactory(repository)
+//        viewModel = ViewModelProvider(this, viewModelFactory).get(WeatherViewModel::class.java)
+//        viewModel.getWeather()
+//        viewModel.myResponse.observe(this, Observer { response ->
+//
+//            if (response.isSuccessful) {
+//                Log.d("asd", response.body()?.main?.temp.toString())
+//                binding.text.text = response.body()?.main?.temp.toString()
+//            }
+//
+//            supportFragmentManager
+//                .beginTransaction()
+//                .replace(R.id.place_holder, MainFragment.newInstance())
+//                .commit()
+//        })
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.place_holder, MainFragment.newInstance())
+            .commit()
 
     }
 }
